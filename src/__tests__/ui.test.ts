@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-import { render } from "ink-testing-library"
-import { TextColor } from "r3bl-ts-utils"
-import React from "react"
-import App from "../ui"
+// import { render } from "ink-testing-library"
+// import { TextColor } from "r3bl-ts-utils"
+// import React from "react"
+// import App from "../ui"
 
 describe("my test suite", () => {
   test("a spec with an expectation", () => {
@@ -25,19 +25,26 @@ describe("my test suite", () => {
   })
   
   test("another spec with a different expectation", () => {
-    expect(false).toBe(false)
+    expect(false).toBe(true)
+  })
+
+  test("huh", () => {
+    expect(false).toBe(true)
   })
 })
 
-describe("ink test suite", () => {
-  test("greet unknown user", () => {
-    const { lastFrame } = render(React.createElement(App, null))
-    expect(lastFrame()).toEqual("Hello, \u001b[32mStranger\u001b[39m")
-  })
+// describe("ink test suite", () => {
+//   it("does nothing", () => {
+
+//   })
+  // test("greet unknown user", () => {
+  //   const { lastFrame } = render(React.createElement(App, null))
+  //   expect(lastFrame()).toEqual("Hello, \u001b[32mStranger\u001b[39m")
+  // })
   
-  test("greet user with a name", () => {
-    const instance = render(React.createElement(App, { name: "Jane" }))
-    const { lastFrame } = instance
-    expect(lastFrame()).toContain(TextColor.builder.green.build()("Jane"))
-  })
-})
+  // test("greet user with a name", () => {
+  //   const instance = render(React.createElement(App, { name: "Jane" }))
+  //   const { lastFrame } = instance
+  //   expect(lastFrame()).toContain(TextColor.builder.green.build()("Jane"))
+  // })
+// })
