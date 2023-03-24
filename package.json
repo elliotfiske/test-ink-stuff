@@ -16,7 +16,8 @@
         "start": "node dist/cli.js",
         "start-watch-js": "nodemon --exitcrash -e ts,tsx,js,jsx --exec 'echo -e '\\033[0m' && clear && node dist/cli.js || exit 1'",
         "build-watch-js": "tsc --watch",
-        "dev-js": "npm run build && npm-run-all -p -r build-watch-js start-watch-js"
+        "dev-js": "npm run build && npm-run-all -p -r build-watch-js start-watch-js",
+        "debug": "node --inspect-brk -r tsm src/cli.tsx"
     },
     "files": [
         "dist/cli.js"
@@ -29,6 +30,7 @@
         "ink-big-text": "^1.2.0",
         "ink-gradient": "file:../ink-gradient",
         "ink-multi-select": "^2.0.0",
+        "lodash": "^4.17.21",
         "r3bl-ts-utils": "latest",
         "react": "^17.0.2",
         "react-redux": "^8.0.5",

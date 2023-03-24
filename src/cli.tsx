@@ -15,4 +15,4 @@ const name: string = _let(new Command(), (command) => {
 
 console.log("yay " + name + "!")
 
-render(<App />)
+render(<App command={name} />)

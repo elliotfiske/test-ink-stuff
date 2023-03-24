@@ -1,8 +1,9 @@
 import React from "react"
-import MultiSelect from "ink-multi-select"
+import { Text } from "ink"
+import MultiSelect, { ListedItem } from "ink-multi-select"
 
 export function ServicePicker() {
-    const items = [
+    const items: ListedItem[] = [
         {
             label: "First",
             value: "first",
@@ -17,5 +18,18 @@ export function ServicePicker() {
         },
     ]
 
-    return <MultiSelect items={items} />
+    const [selection, setSelection] = React.useState<ListedItem[]>([])
+
+    if (selection.length > 0) {
+        return <Text>{selection.map((sel) => sel.value).join(", ")}</Text>
+    }
+
+    return (
+        <MultiSelect
+            onSubmit={(result) => {
+                setSelection(result)
+            }}
+            items={items}
+        />
+    )
 }
