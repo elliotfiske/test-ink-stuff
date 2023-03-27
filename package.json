@@ -27,6 +27,7 @@
         "child_process": "^1.0.2",
         "commander": "^8.3.0",
         "ink": "^3.2.0",
+        "ink-autocomplete": "^0.0.0",
         "ink-big-text": "^1.2.0",
         "ink-gradient": "file:../ink-gradient",
         "ink-multi-select": "^2.0.0",

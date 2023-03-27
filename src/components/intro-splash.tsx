@@ -18,37 +18,37 @@ import Gradient from "ink-gradient"
 import BigText from "ink-big-text"
 
 type Props = {
-  name: string
+    name: string
 }
 
 export function IntroSplash({ name }: Props) {
-  const [color, setColor] = React.useState(0)
+    const [color, setColor] = React.useState(0)
 
-  useLayoutEffect(() => {
-    const cancel = setInterval(() => {
-      setColor((color) => {
-        const result = color + 20
-        if (result >= 360) return 0
-        return result
-      })
-    }, 100)
-    return () => {
-      clearInterval(cancel)
-    }
-  }, [])
+    useLayoutEffect(() => {
+        const cancel = setInterval(() => {
+            setColor((color) => {
+                const result = color + 20
+                if (result >= 360) return 0
+                return result
+            })
+        }, 100)
+        return () => {
+            clearInterval(cancel)
+        }
+    }, [])
 
-  const colors = [
-    { h: color, s: 1, v: 1, a: 1 },
-    { h: color + 1, s: 1, v: 1, a: 1 },
-  ]
+    const colors = [
+        { h: color, s: 1, v: 1, a: 1 },
+        { h: color + 1, s: 1, v: 1, a: 1 },
+    ]
 
-  return (
-    <Gradient
-      colors={colors}
-      options={{ interpolation: "hsv", hsvSpin: "long" }}
-    >
-      color: {color}
-      <BigText text={`Hello ${name}`} />
-    </Gradient>
-  )
+    return (
+        <Gradient
+            colors={colors}
+            // options={{ interpolation: "hsv", hsvSpin: "long" }}
+        >
+            color: {color}
+            <BigText text={`Hello ${name}`} />
+        </Gradient>
+    )
 }

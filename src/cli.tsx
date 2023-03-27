@@ -2,17 +2,23 @@
 
 import React from "react"
 import { render } from "ink"
-import { _let } from "r3bl-ts-utils"
 import { Command } from "commander"
-import { App } from "./root"
+import { ComponentCreator } from "./components/component-creator"
+import { withFirstTimeSetup } from "./components/first-time-setup"
 
-const name: string = _let(new Command(), (command) => {
-    command.option("-n, --name <name>", "name to display")
-    command.parse(process.argv)
-    const options = command.opts()
-    return options["name"] as string
-})
+export const cli = new Command()
 
-console.log("yay " + name + "!")
+cli.name("new-component")
+    .alias("nc")
+    .description("Create a new React Component in web-builder or cxr")
+    .option("-n, --name <name>", "name of the component")
+    .action((options) => {
+        console.log("yay " + options.name + "!")
+        render(
+            withFirstTimeSetup(
+                <ComponentCreator prechooseName={options.name} />
+            )
+        )
+    })
 
-render(<App command={name} />)
+cli.parse()
